@@ -6,7 +6,7 @@ require "active_record/errors"
 class Gutentag::TagValidations
   DEFAULTS = {
     :presence   => true,
-    :uniqueness => {:case_sensitive => false}
+    :uniqueness => {:case_sensitive => false, scope: :tenant_id}
   }.freeze
   DATABASE_ERROR_CLASSES = lambda {
     classes = []

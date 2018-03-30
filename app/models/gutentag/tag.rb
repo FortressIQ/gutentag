@@ -3,6 +3,8 @@
 class Gutentag::Tag < ActiveRecord::Base
   self.table_name = "gutentag_tags"
 
+  acts_as_tenant
+
   has_many :taggings,
     :class_name => "Gutentag::Tagging",
     :dependent  => :destroy

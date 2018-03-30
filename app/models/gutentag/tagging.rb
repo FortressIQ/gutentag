@@ -3,6 +3,8 @@
 class Gutentag::Tagging < ActiveRecord::Base
   self.table_name = "gutentag_taggings"
 
+  acts_as_tenant
+
   belongs_to :taggable, :polymorphic => true
   belongs_to :tag, :class_name => "Gutentag::Tag", :counter_cache => true
 
